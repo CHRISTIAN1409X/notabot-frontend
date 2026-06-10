@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .enterprise-shell {
+    background:
+      linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+      linear-gradient(135deg, #0f172a 0%, #111a2e 52%, #0f172a 100%);
+    background-size: 42px 42px, 42px 42px, auto;
+  }
+
+  .panel {
+    @apply border border-line bg-panel/80 shadow-enterprise backdrop-blur;
+    border-radius: 8px;
+  }
+
+  .soft-panel {
+    @apply border border-line/80 bg-ink/45;
+    border-radius: 8px;
+  }
+
+  .input-shell {
+    @apply min-h-12 w-full border border-line bg-ink/55 px-3 text-copy outline-none transition duration-200 placeholder:text-slate-500 focus:border-accent focus:ring-4 focus:ring-accent/15;
+    border-radius: 8px;
+  }
+
+  .icon-button {
+    @apply inline-flex h-10 w-10 items-center justify-center border border-line text-muted transition duration-200 hover:border-accent/60 hover:bg-accent/10 hover:text-copy;
+    border-radius: 8px;
+  }
+
+  .primary-button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 bg-accent px-4 font-bold text-white shadow-lg shadow-accent/20 transition duration-200 hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60;
+    border-radius: 8px;
+  }
+
+  .secondary-button {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-ink/55 px-4 font-bold text-copy transition duration-200 hover:border-accent/60 hover:bg-accent/10;
+    border-radius: 8px;
+  }
+
+  .mono-state {
+    @apply font-mono text-xs font-bold;
+  }
+}
