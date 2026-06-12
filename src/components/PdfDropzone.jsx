@@ -1,7 +1,11 @@
 import { FileText, UploadCloud } from "lucide-react";
 import { useId, useState } from "react";
-
-export default function PdfDropzone({ file, onFile }) {
+export default function PdfDropzone({
+  file,
+  onFile,
+  title = "Subir planeador PDF",
+  description = "Arrastra el archivo del profesor o selecciona un PDF institucional para iniciar la validacion.",
+}) {
   const inputId = useId();
   const [isDragging, setIsDragging] = useState(false);
 
@@ -28,14 +32,25 @@ export default function PdfDropzone({ file, onFile }) {
         handleFile(event.dataTransfer.files?.[0]);
       }}
     >
-      <label className="grid cursor-pointer place-items-center gap-3 text-center" htmlFor={inputId}>
-        <span className="grid h-12 w-12 place-items-center border border-accent/35 bg-accent/10 text-indigo-200" style={{ borderRadius: 8 }}>
+      <label
+        className="grid cursor-pointer place-items-center gap-3 text-center"
+        htmlFor={inputId}
+      >
+        <span
+          className="grid h-12 w-12 place-items-center border border-accent/35 bg-accent/10 text-indigo-200"
+          style={{ borderRadius: 8 }}
+        >
           <UploadCloud size={22} />
         </span>
-        <span className="text-lg font-extrabold text-copy">Subir planeador PDF</span>
-        <span className="max-w-md text-sm leading-6 text-muted">
-          Arrastra el archivo del profesor o selecciona un PDF institucional para iniciar la validacion.
+
+        <span className="text-lg font-extrabold text-copy">
+          {title}
         </span>
+
+        <span className="max-w-md text-sm leading-6 text-muted">
+          {description}
+        </span>
+
         <input
           accept="application/pdf"
           className="sr-only"
@@ -46,11 +61,18 @@ export default function PdfDropzone({ file, onFile }) {
       </label>
 
       {file && (
-        <div className="mt-5 flex items-center gap-3 border border-line bg-panel/70 p-3" style={{ borderRadius: 8 }}>
+        <div
+          className="mt-5 flex items-center gap-3 border border-line bg-panel/70 p-3"
+          style={{ borderRadius: 8 }}
+        >
           <FileText size={20} className="text-indigo-200" />
+
           <div className="min-w-0">
             <p className="truncate font-bold text-copy">{file.name}</p>
-            <p className="font-mono text-xs font-bold text-muted">{Math.max(1, Math.round(file.size / 1024))} KB</p>
+
+            <p className="font-mono text-xs font-bold text-muted">
+              {Math.max(1, Math.round(file.size / 1024))} KB
+            </p>
           </div>
         </div>
       )}
