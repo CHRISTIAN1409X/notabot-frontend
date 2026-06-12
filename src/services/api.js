@@ -7,8 +7,29 @@ import {
   reviewDetails,
   systemStatus,
 } from "../data/mockData";
+import api from "./apiAxios";
 
 const delay = (ms = 520) => new Promise((resolve) => setTimeout(resolve, ms));
+
+
+
+export const verifySession = async ()=>{
+    const response = await api.get("/api/auth/verify")
+
+    if(response.status == 200){
+        const data = response.data; 
+        return data;
+    }else{
+        console.log("**********ERROR AUTH");
+        
+        throw new Error("Unauthirized");
+    } 
+}
+
+
+
+
+
 
 export async function fetchDashboard() {
   await delay();
