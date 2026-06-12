@@ -52,16 +52,6 @@ export default function TopBar() {
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <div className="secondary-button min-h-10 px-3">
-          <CircleGauge size={17} />
-          <span className="font-mono text-xs">84ms</span>
-        </div>
-        <div className="secondary-button min-h-10 px-3">
-          <Semaphore value="green" />
-        </div>
-        <button className="icon-button" type="button" aria-label="Notificaciones">
-          <Bell size={18} />
-        </button>
         <div className="hidden border border-line bg-ink/55 px-3 py-2 sm:block" style={{ borderRadius: 8 }}>
           <p className="text-xs font-bold text-copy">{user?.name}</p>
           <p className="font-mono text-[10px] font-bold text-muted">{user?.email}</p>

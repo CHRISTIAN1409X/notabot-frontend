@@ -12,9 +12,9 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { label: "Dashboard", to: "/dashboard", icon: LayoutDashboard },
-  { label: "Nuevo proceso", to: "/nuevo-proceso", icon: FilePlus2 },
   { label: "Procesos activos", to: "/procesos", icon: FileClock },
   { label: "Historial", to: "/historial", icon: History },
+  { label: "Nuevo proceso", to: "/nuevo-proceso", icon: FilePlus2 },
   { label: "Configuracion", to: "/settings", icon: Settings },
 ];
 
