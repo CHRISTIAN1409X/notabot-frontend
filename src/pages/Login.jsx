@@ -7,7 +7,7 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, login } = useAuth();
-  const [email, setEmail] = useState("admin@notabot.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,6 +65,7 @@ export default function Login() {
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                 <input
                   className="input-shell pl-10"
+                  placeholder="correo institucional"
                   type="email"
                   value={email}
                   autoComplete="email"
@@ -79,7 +80,7 @@ export default function Login() {
                 <KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                 <input
                   className="input-shell pl-10"
-                  placeholder="123456"
+                  placeholder="contraseña"
                   type="password"
                   value={password}
                   autoComplete="current-password"
@@ -93,11 +94,6 @@ export default function Login() {
                 {error}
               </div>
             )}
-
-            <div className="soft-panel px-4 py-3">
-              <p className="font-mono text-xs font-bold text-muted">DEMO</p>
-              <p className="mt-1 text-sm text-copy">admin@notabot.com / 123456</p>
-            </div>
 
             <button className="primary-button mt-2" type="submit" disabled={isSubmitting}>
               <LockKeyhole size={18} />

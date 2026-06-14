@@ -1,10 +1,29 @@
 import { Database, GraduationCap, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
 import PdfDropzone from "../components/PdfDropzone";
+import { ArrowRight, Bot, FileText, UploadCloud } from "lucide-react";
 
 export default function SettingsPage() {
   const [file, setFile] = useState(null);
   const [showUploader, setShowUploader] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleUpload = async () => {
+    if (!file) {
+      setError("Selecciona un PDF antes de subir el microcurriculo.");
+      return;
+    }
+
+    setError("");
+
+    setIsSubmitting(true);
+
+    // Simulacion subida
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    setIsSubmitting(false);
+  };
 
   return (
     <div className="mx-auto grid max-w-5xl gap-5">
@@ -79,6 +98,23 @@ export default function SettingsPage() {
             title="Subir microcurriculo en PDF"
             description="Arrastra el archivo del microcurriculo o selecciona el PDF institucional para iniciar la validacion."
           />
+          {error && (
+            <p className="mt-4 text-sm font-bold text-rose-300">
+              {error}
+            </p>
+          )}
+          <button
+            className="primary-button mt-6 w-full sm:w-auto"
+            type="button"
+            disabled={isSubmitting}
+            onClick={handleUpload}
+          >
+            <UploadCloud size={18} />
+
+            {isSubmitting
+              ? "Subiendo microcurriculo..."
+              : "Subir microcurriculo"}
+          </button>
         </section>
     </div>
   );

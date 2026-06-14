@@ -34,7 +34,12 @@ export default function NewProcess() {
     setError("");
     setResult(null);
     setIsSubmitting(true);
-    const response = await createReviewProcess({ ...form, file });
+    const pdfUrl = URL.createObjectURL(file);
+    const response = await createReviewProcess({
+      ...form,
+      file,
+      pdfUrl,
+    });
     setResult(response);
     setIsSubmitting(false);
   };
