@@ -7,10 +7,60 @@ import {
   reviewDetails,
   systemStatus,
 } from "../data/mockData";
+import api from "./apiAxios";
 const reviews = [];
 const getAllProcesses = () => [...reviews, ...processes];
 
 const delay = (ms = 520) => new Promise((resolve) => setTimeout(resolve, ms));
+
+
+
+export const verifySession = async ()=>{
+    const response = await api.get("/api/auth/verify")
+
+    if(response.status == 200){
+        const data = response.data; 
+        return data;
+    }else{
+        console.log("**********ERROR AUTH");
+        
+        throw new Error("Unauthirized");
+    } 
+}
+
+
+// Centralizar todas las llamadas get
+export const getConsultParams = async(uri,options={})=>{
+    const response = await api.get(uri,options)
+
+    if(response.status == 200){
+        const data = response.data; 
+        return data;
+    }else{
+        console.log(`**********ERROR AL HACER LA CONSULTA A ${uri}`);
+        
+        throw new Error(`**********ERROR AL HACER LA CONSULTA A ${uri}`);
+    } 
+}
+
+
+// Centralizar todas las llamadas post 
+export const postConsult = async(uri,body)=>{
+    const response = await api.post(uri,body)
+    
+    if(response.status === 200){
+        const data = response.data;
+        console.log(data);
+        
+        return data
+    }else{
+        console.log(`**********ERROR AL HACER LA CONSULTA A ${uri}`);
+        
+        throw new Error(`**********ERROR AL HACER LA CONSULTA A ${uri}`);
+    } 
+}
+
+
 
 export async function fetchDashboard() {
   await delay();

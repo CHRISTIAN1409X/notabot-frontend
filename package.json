@@ -5,8 +5,10 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.101.0",
     "@vitejs/plugin-react": "latest",
     "autoprefixer": "^10.5.0",
+    "axios": "^1.17.0",
     "lucide-react": "latest",
     "postcss": "^8.5.15",
     "react": "latest",

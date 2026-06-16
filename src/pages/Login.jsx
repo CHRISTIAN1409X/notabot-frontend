@@ -2,6 +2,7 @@ import { ArrowRight, FileCheck2, KeyRound, LockKeyhole, Mail, ShieldCheck, Unive
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import api from "../services/apiAxios";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,18 +19,15 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError("");
-    setIsSubmitting(true);
 
     const response = await login({ email, password });
 
-    setIsSubmitting(false);
-
+  
     if (!response.ok) {
       setError(response.message);
       return;
     }
-
+    setIsSubmitting(false);
     navigate(location.state?.from?.pathname ?? "/dashboard", { replace: true });
   };
 
