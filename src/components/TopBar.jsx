@@ -30,6 +30,7 @@ export default function TopBar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { logout, user } = useAuth();
+  console.log("TOPBAR USER:", user);
   const routeMeta = titleMap[pathname] ?? {
     title: "Detalle de revision",
     description: "Analisis IA y decision academica del coordinador",
@@ -53,8 +54,13 @@ export default function TopBar() {
 
       <div className="flex flex-wrap items-center gap-2">
         <div className="hidden border border-line bg-ink/55 px-3 py-2 sm:block" style={{ borderRadius: 8 }}>
-          <p className="text-xs font-bold text-copy">{user?.name}</p>
-          <p className="font-mono text-[10px] font-bold text-muted">{user?.email}</p>
+        <p className="text-xs font-bold text-copy">
+          {user?.username}
+        </p>
+
+        <p className="font-mono text-[10px] font-bold text-muted">
+          {user?.email || "Usuario autenticado"}
+        </p>
         </div>
         <button className="secondary-button min-h-10 px-3" type="button" onClick={handleLogout}>
           <LogOut size={17} />

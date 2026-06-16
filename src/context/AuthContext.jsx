@@ -24,24 +24,44 @@ export function AuthProvider({ children }) {
     try {
       const response = await api.post('/login', {
         email: email,
-        passwordHash: password, 
+        passwordHash: password,
       });
 
       if (response.status === 200) {
+
+        // CONSULTAR USUARIO AUTENTICADO
+        const verifyResponse = await api.get('/api/auth/verify');
+
+        const authUser = verifyResponse.data;
+
         const sessionUser = {
-          username: response.data.username,
+          name: authUser.username,
+          username: authUser.username,
+          email: authUser.email || "Sin correo",
           authenticatedAt: new Date().toISOString(),
         };
 
         localStorage.setItem(STORAGE_KEY, JSON.stringify(sessionUser));
+
         setUser(sessionUser);
 
         return { ok: true };
       }
-      
-      return { ok: false, message: 'Credenciales inválidas' };
+
+      return {
+        ok: false,
+        message: 'Credenciales inválidas',
+      };
+
     } catch (error) {
-      return { ok: false, message: error.message || 'Error de red' };
+
+      return {
+        ok: false,
+        message:
+          error.response?.data?.message ||
+          error.message ||
+          'Error de red',
+      };
     }
   };
 
@@ -71,7 +91,6 @@ export function AuthProvider({ children }) {
     }),
     [user]
   );
-
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 

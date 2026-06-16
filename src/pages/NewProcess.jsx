@@ -59,40 +59,7 @@ export default function NewProcess() {
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          <label className="grid gap-2">
-            <span className="text-sm font-bold text-copy">Coordinador</span>
-            <input className="input-shell" value={form.coordinator} onChange={(event) => updateField("coordinator", event.target.value)} />
-          </label>
 
-          <label className="grid gap-2">
-            <span className="text-sm font-bold text-copy">Profesor</span>
-            <select className="input-shell" value={form.professor} onChange={(event) => updateField("professor", event.target.value)}>
-              {professors.map((professor) => (
-                <option key={professor}>{professor}</option>
-              ))}
-            </select>
-          </label>
-
-          <label className="grid gap-2">
-            <span className="text-sm font-bold text-copy">Materia</span>
-            <select className="input-shell" value={form.subject} onChange={(event) => updateField("subject", event.target.value)}>
-              {subjects.map((subject) => (
-                <option key={subject}>{subject}</option>
-              ))}
-            </select>
-          </label>
-
-          <label className="grid gap-2">
-            <span className="text-sm font-bold text-copy">Programa</span>
-            <input className="input-shell" value={form.program} onChange={(event) => updateField("program", event.target.value)} />
-          </label>
-
-          <label className="grid gap-2 md:col-span-2">
-            <span className="text-sm font-bold text-copy">Periodo academico</span>
-            <input className="input-shell" value={form.period} onChange={(event) => updateField("period", event.target.value)} />
-          </label>
-        </div>
 
         <div className="mt-6">
           <PdfDropzone file={file} onFile={setFile} />

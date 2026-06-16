@@ -2,6 +2,7 @@ import { Database, GraduationCap, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
 import PdfDropzone from "../components/PdfDropzone";
 import { ArrowRight, Bot, FileText, UploadCloud } from "lucide-react";
+import api from "../services/apiAxios";
 
 export default function SettingsPage() {
   const [file, setFile] = useState(null);
@@ -15,14 +16,41 @@ export default function SettingsPage() {
       return;
     }
 
-    setError("");
+    try {
+      setError("");
+      setIsSubmitting(true);
 
-    setIsSubmitting(true);
+      const formData = new FormData();
 
-    // Simulacion subida
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+      formData.append("file", file);
 
-    setIsSubmitting(false);
+      await api.post(
+        "/api/drive/upload-microcurriculum",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      alert("Microcurriculo subido correctamente");
+
+      setFile(null);
+
+    } catch (error) {
+
+      console.error(error);
+
+      setError(
+        error.response?.data ||
+        "Error subiendo microcurriculo"
+      );
+
+    } finally {
+
+      setIsSubmitting(false);
+    }
   };
 
   return (
