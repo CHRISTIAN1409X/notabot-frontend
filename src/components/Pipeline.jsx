@@ -12,8 +12,8 @@ export default function Pipeline({ stages }) {
       </div>
 
       <div className="mt-6 grid gap-4">
-        {stages.map((stage) => {
-          const width = Math.max(8, Math.round((stage.count / total) * 100));
+          {stages.map((stage) => {
+          const width = total === 0 || stage.count === 0 ? 0 : Math.max(8, Math.round((stage.count / total) * 100));
 
           return (
             <div key={stage.label}>

@@ -28,8 +28,7 @@ export default function ProcessTable({ processes }) {
                       <FileText size={18} />
                     </span>
                     <div>
-                      <p className="font-mono text-xs font-bold text-copy">{process.id}</p>
-                      <p className="max-w-[220px] truncate text-xs text-muted">{process.pdfName}</p>
+                      <p className="max-w-[260px] truncate font-mono text-xs font-bold text-copy" title={process.id}>{process.pdfName}</p>
                     </div>
                   </div>
                 </td>

@@ -1,4 +1,4 @@
-import { CheckCircle2, ClipboardCheck, MessageSquareWarning, Send } from "lucide-react";
+import { CheckCircle2, ClipboardCheck, MessageSquareWarning, Send, XCircle } from "lucide-react";
 import Semaphore from "./Semaphore";
 import StatusBadge from "./StatusBadge";
 
@@ -8,24 +8,34 @@ const scoreColor = {
   red: "#fb7185",
 };
 
-function Checklist({ title, items, tone }) {
-  const toneMap = {
-    red: "border-rose-300/25 bg-rose-300/10 text-rose-200",
-    yellow: "border-amber-300/25 bg-amber-300/10 text-amber-200",
-    indigo: "border-indigo-300/25 bg-indigo-300/10 text-indigo-200",
-  };
-
+function CriterionCard({ criterion, passed, observation, score: criterionScore }) {
   return (
-    <section>
-      <h3 className="mb-3 text-sm font-extrabold text-copy">{title}</h3>
-      <div className="grid gap-2">
-        {items.map((item) => (
-          <div className={`border p-3 text-sm leading-6 ${toneMap[tone]}`} style={{ borderRadius: 8 }} key={item}>
-            {item}
-          </div>
-        ))}
+    <div
+      className={`border-l-4 p-4 ${passed ? "border-l-emerald-400" : "border-l-rose-400"}`}
+      style={{ borderRadius: 8 }}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-2 min-w-0">
+          {passed ? (
+            <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-400" size={18} />
+          ) : (
+            <XCircle className="mt-0.5 shrink-0 text-rose-400" size={18} />
+          )}
+          <span className="font-bold text-copy">{criterion}</span>
+        </div>
+        <span
+          className={`mono-state shrink-0 border px-2 py-0.5 text-xs font-bold ${
+            passed
+              ? "border-emerald-300/30 bg-emerald-300/10 text-emerald-200"
+              : "border-rose-300/30 bg-rose-300/10 text-rose-200"
+          }`}
+          style={{ borderRadius: 6 }}
+        >
+          {criterionScore}/10
+        </span>
       </div>
-    </section>
+      <p className="mt-2 text-sm leading-6 text-muted">{observation}</p>
+    </div>
   );
 }
 
@@ -48,7 +58,7 @@ export default function ReviewAiPanel({ review, decision, isSubmitting, onApprov
             className="grid h-28 w-28 place-items-center"
             style={{
               borderRadius: 8,
-              background: `conic-gradient(${arcColor} ${review.score * 3.6}deg, rgba(51,65,85,0.9) 0deg)`,
+              background: `conic-gradient(${arcColor} ${review.score * 36}deg, rgba(51,65,85,0.9) 0deg)`,
             }}
           >
             <div className="grid h-[84px] w-[84px] place-items-center bg-panel" style={{ borderRadius: 8 }}>
@@ -65,9 +75,22 @@ export default function ReviewAiPanel({ review, decision, isSubmitting, onApprov
         </div>
       </section>
 
-      <Checklist title="Errores detectados" items={review.errorsList} tone="red" />
-      <Checklist title="Anotaciones" items={review.annotationsList} tone="indigo" />
-      <Checklist title="Recomendaciones" items={review.recommendationsList} tone="yellow" />
+      {review.criteriaResults && review.criteriaResults.length > 0 && (
+        <section>
+          <h3 className="mb-3 text-sm font-extrabold text-copy">Criterios evaluados</h3>
+          <div className="grid gap-2">
+            {review.criteriaResults.map((cr) => (
+              <CriterionCard
+                key={cr.criterion}
+                criterion={cr.criterion}
+                passed={cr.passed}
+                observation={cr.observation}
+                score={cr.score}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="panel p-5">
         <h3 className="text-sm font-extrabold text-copy">Timeline del proceso</h3>
