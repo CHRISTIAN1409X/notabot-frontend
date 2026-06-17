@@ -14,7 +14,7 @@ export default function HistoryPage() {
       <section className="panel p-5">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-xl font-extrabold text-copy">Historial academico</h2>
+            <h2 className="text-xl font-extrabold text-copy">Historial académico</h2>
             <p className="mt-1 text-sm text-muted">Planeadores aprobados con trazabilidad institucional.</p>
           </div>
           <span className="font-mono text-xs font-bold text-muted">EXPORT READY</span>

@@ -6,7 +6,6 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Settings,
-  University,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
@@ -15,7 +14,7 @@ const navItems = [
   { label: "Procesos activos", to: "/procesos", icon: FileClock },
   { label: "Historial", to: "/historial", icon: History },
   { label: "Nuevo proceso", to: "/nuevo-proceso", icon: FilePlus2 },
-  { label: "Configuracion", to: "/settings", icon: Settings },
+  { label: "Configuración", to: "/settings", icon: Settings },
 ];
 
 export default function Sidebar({ collapsed, onToggle }) {
@@ -26,16 +25,14 @@ export default function Sidebar({ collapsed, onToggle }) {
       }`}
     >
       <div className="flex items-center gap-3 px-2 py-3">
-        <div className="grid h-11 w-11 shrink-0 place-items-center bg-accent text-white" style={{ borderRadius: 8 }}>
-          <University size={22} />
-        </div>
+        <img src="/logo.png" alt="NotaBot" className="h-11 w-11 shrink-0 rounded-lg object-contain" />
         <div className={`${collapsed ? "md:hidden" : ""}`}>
           <p className="font-extrabold text-copy">NotaBot</p>
           <p className="font-mono text-xs font-bold text-muted">ACADEMIC SaaS</p>
         </div>
       </div>
 
-      <nav className="mt-6 flex gap-2 overflow-x-auto md:grid md:overflow-visible" aria-label="Navegacion principal">
+      <nav className="mt-6 flex gap-2 overflow-x-auto md:grid md:overflow-visible" aria-label="Navegación principal">
         {navItems.map((item) => {
           const Icon = item.icon;
 

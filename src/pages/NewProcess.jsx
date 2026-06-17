@@ -10,7 +10,7 @@ const initialForm = {
   coordinator: "Camila Torres",
   professor: professors[0],
   subject: subjects[0],
-  program: "Ingenieria de Sistemas",
+  program: "Ingeniería de Sistemas",
   period: "2026-A",
 };
 
@@ -27,7 +27,7 @@ export default function NewProcess() {
 
   const handleSubmit = async () => {
     if (!file) {
-      setError("Selecciona un PDF antes de iniciar la validacion.");
+      setError("Selecciona un PDF antes de iniciar la validación.");
       return;
     }
 
@@ -52,9 +52,9 @@ export default function NewProcess() {
             <FileText size={23} />
           </span>
           <div>
-            <h2 className="text-xl font-extrabold text-copy">Crear proceso de revision</h2>
+            <h2 className="text-xl font-extrabold text-copy">Crear proceso de revisión</h2>
             <p className="mt-1 text-sm leading-6 text-muted">
-              Registra los datos academicos, adjunta el planeador PDF y simula el envio al backend.
+              Registra los datos académicos, adjunta el planeador PDF y simula el envío al backend.
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function NewProcess() {
 
         <button className="primary-button mt-6 w-full sm:w-auto" type="button" disabled={isSubmitting} onClick={handleSubmit}>
           <Bot size={18} />
-          {isSubmitting ? "Validando PDF..." : "Iniciar validacion"}
+          {isSubmitting ? "Validando PDF..." : "Iniciar validación"}
         </button>
       </section>
 
@@ -77,7 +77,7 @@ export default function NewProcess() {
         <section className="panel p-5">
           <h2 className="text-lg font-extrabold text-copy">Respuesta esperada del backend</h2>
           <div className="mt-5 grid gap-3">
-            {["score", "estado", "anotaciones", "errores", "recomendaciones", "semaforo"].map((item) => (
+            {["score", "estado", "anotaciones", "errores", "recomendaciones", "semáforo"].map((item) => (
               <div className="soft-panel flex items-center justify-between p-3" key={item}>
                 <span className="text-sm font-semibold text-copy">{item}</span>
                 <span className="font-mono text-xs font-bold text-muted">mock</span>
@@ -90,7 +90,7 @@ export default function NewProcess() {
           <section className="panel p-5">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="font-mono text-xs font-bold text-indigo-200">VALIDACION FINALIZADA</p>
+                <p className="font-mono text-xs font-bold text-indigo-200">VALIDACIÓN FINALIZADA</p>
                 <h2 className="mt-2 text-xl font-extrabold text-copy">{result.subject}</h2>
               </div>
               <Semaphore value={result.semaphore} />
@@ -110,7 +110,7 @@ export default function NewProcess() {
               </div>
             </div>
             <Link className="primary-button mt-5 w-full" to={`/reviews/${result.reviewId}`}>
-              Ver detalle de revision
+              Ver detalle de revisión
               <ArrowRight size={18} />
             </Link>
           </section>

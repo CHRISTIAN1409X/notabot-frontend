@@ -4,7 +4,7 @@ export default function PdfDropzone({
   file,
   onFile,
   title = "Subir planeador PDF",
-  description = "Arrastra el archivo del profesor o selecciona un PDF institucional para iniciar la validacion.",
+  description = "Arrastra el archivo del profesor o selecciona un PDF institucional para iniciar la validación.",
 }) {
   const inputId = useId();
   const [isDragging, setIsDragging] = useState(false);

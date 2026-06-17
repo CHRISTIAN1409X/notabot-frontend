@@ -38,7 +38,7 @@ export default function ReviewAiPanel({ review, decision, isSubmitting, onApprov
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="font-mono text-xs font-bold text-indigo-200">IA DOCUMENTAL</p>
-            <h2 className="mt-2 text-xl font-extrabold text-copy">Resultado de revision</h2>
+            <h2 className="mt-2 text-xl font-extrabold text-copy">Resultado de revisión</h2>
           </div>
           <StatusBadge status={decision?.status ?? review.status} statusKey={decision?.statusKey ?? review.statusKey} />
         </div>
@@ -113,7 +113,7 @@ export default function ReviewAiPanel({ review, decision, isSubmitting, onApprov
             <p className="mt-1 text-sm leading-6 text-muted">
               {decision.statusKey === "approved"
                 ? "El documento pasa al historial y actualiza el dashboard."
-                : "El proceso queda pendiente de correccion por parte del profesor."}
+                : "El proceso queda pendiente de corrección por parte del profesor."}
             </p>
           </div>
         </div>

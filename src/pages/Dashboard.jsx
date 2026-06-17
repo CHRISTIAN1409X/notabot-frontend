@@ -35,7 +35,7 @@ export default function Dashboard() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="text-lg font-extrabold text-copy">Estado global del sistema</h2>
-              <p className="mt-1 text-sm text-muted">Validacion documental y cola de procesos</p>
+              <p className="mt-1 text-sm text-muted">Validación documental y cola de procesos</p>
             </div>
             <Semaphore value={dashboard.system.semaphore} />
           </div>

@@ -15,8 +15,8 @@ export default function ProcessTable({ processes }) {
               <th className="px-4 py-3">Materia</th>
               <th className="px-4 py-3">Estado</th>
               <th className="px-4 py-3">Score</th>
-              <th className="px-4 py-3">Semaforo</th>
-              <th className="px-4 py-3">Accion</th>
+              <th className="px-4 py-3">Semáforo</th>
+              <th className="px-4 py-3">Acción</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-line/70">

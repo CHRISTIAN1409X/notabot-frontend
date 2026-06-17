@@ -5,8 +5,8 @@ export default function Pipeline({ stages }) {
     <section className="panel p-5">
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-lg font-extrabold text-copy">Pipeline de revision</h2>
-          <p className="text-sm text-muted">Estado operacional de planeadores academicos</p>
+          <h2 className="text-lg font-extrabold text-copy">Pipeline de revisión</h2>
+          <p className="text-sm text-muted">Estado operacional de planeadores académicos</p>
         </div>
         <span className="mono-state text-muted">{total} procesos activos</span>
       </div>

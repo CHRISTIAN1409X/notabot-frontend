@@ -6,11 +6,11 @@ import Semaphore from "./Semaphore";
 const titleMap = {
   "/dashboard": {
     title: "Dashboard",
-    description: "Gestion centralizada de planeadores academicos",
+    description: "Gestión centralizada de planeadores académicos",
   },
   "/nuevo-proceso": {
     title: "Nuevo proceso",
-    description: "Recepcion y validacion inteligente de PDF academico",
+    description: "Recepción y validación inteligente de PDF académico",
   },
   "/procesos": {
     title: "Procesos activos",
@@ -21,8 +21,8 @@ const titleMap = {
     description: "Planeadores aprobados y trazabilidad institucional",
   },
   "/settings": {
-    title: "Configuracion",
-    description: "Parametros de coordinacion y validacion documental",
+    title: "Configuración",
+    description: "Parámetros de coordinación y validación documental",
   },
 };
 
@@ -32,8 +32,8 @@ export default function TopBar() {
   const { logout, user } = useAuth();
   console.log("TOPBAR USER:", user);
   const routeMeta = titleMap[pathname] ?? {
-    title: "Detalle de revision",
-    description: "Analisis IA y decision academica del coordinador",
+    title: "Detalle de revisión",
+    description: "Análisis IA y decisión académica del coordinador",
   };
 
   const handleLogout = () => {
@@ -46,7 +46,7 @@ export default function TopBar() {
       <div>
         <p className="mb-2 inline-flex items-center gap-2 font-mono text-xs font-bold text-indigo-200">
           <ShieldCheck size={15} />
-          COORDINACION ACADEMICA
+          COORDINACIÓN ACADÉMICA
         </p>
         <h1 className="text-2xl font-extrabold text-copy md:text-3xl">{routeMeta.title}</h1>
         <p className="mt-1 text-sm text-muted">{routeMeta.description}</p>
@@ -64,7 +64,7 @@ export default function TopBar() {
         </div>
         <button className="secondary-button min-h-10 px-3" type="button" onClick={handleLogout}>
           <LogOut size={17} />
-          <span className="hidden sm:inline">Cerrar sesion</span>
+          <span className="hidden sm:inline">Cerrar sesión</span>
         </button>
       </div>
     </header>

@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
   const handleUpload = async () => {
     if (!file) {
-      setError("Selecciona un PDF antes de subir el microcurriculo.");
+      setError("Selecciona un PDF antes de subir el microcurrículo.");
       return;
     }
 
@@ -34,7 +34,7 @@ export default function SettingsPage() {
         }
       );
 
-      alert("Microcurriculo subido correctamente");
+      alert("Microcurrículo subido correctamente");
 
       setFile(null);
 
@@ -44,7 +44,7 @@ export default function SettingsPage() {
 
       setError(
         error.response?.data ||
-        "Error subiendo microcurriculo"
+        "Error subiendo microcurrículo"
       );
 
     } finally {
@@ -57,11 +57,11 @@ export default function SettingsPage() {
     <div className="mx-auto grid max-w-5xl gap-5">
       <section className="panel p-5">
         <h2 className="text-xl font-extrabold text-copy">
-          Configuracion institucional
+          Configuración institucional
         </h2>
 
         <p className="mt-1 text-sm text-muted">
-          Parametros de coordinacion para la futura conexion API.
+          Parámetros de coordinación para la futura conexión API.
         </p>
       </section>
 
@@ -81,7 +81,7 @@ export default function SettingsPage() {
           <h3 className="mt-5 font-extrabold text-copy">API</h3>
 
           <p className="mt-2 text-sm leading-6 text-muted">
-            Presiona para subir documento de configuracion API
+            Presiona para subir documento de configuración API
           </p>
         </article>
 
@@ -113,7 +113,7 @@ export default function SettingsPage() {
           <h3 className="mt-5 font-extrabold text-copy">Reglas IA</h3>
 
           <p className="mt-2 text-sm leading-6 text-muted">
-            Rubrica institucional v2
+            Rúbrica institucional v2
           </p>
         </article>
       </section>
@@ -123,8 +123,8 @@ export default function SettingsPage() {
           <PdfDropzone
             file={file}
             onFile={setFile}
-            title="Subir microcurriculo en PDF"
-            description="Arrastra el archivo del microcurriculo o selecciona el PDF institucional para iniciar la validacion."
+            title="Subir microcurrículo en PDF"
+            description="Arrastra el archivo del microcurrículo o selecciona el PDF institucional para iniciar la validación."
           />
           {error && (
             <p className="mt-4 text-sm font-bold text-rose-300">
@@ -140,8 +140,8 @@ export default function SettingsPage() {
             <UploadCloud size={18} />
 
             {isSubmitting
-              ? "Subiendo microcurriculo..."
-              : "Subir microcurriculo"}
+              ? "Subiendo microcurrículo..."
+              : "Subir microcurrículo"}
           </button>
         </section>
     </div>

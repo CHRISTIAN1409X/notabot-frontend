@@ -13,8 +13,8 @@ export default function ActiveProcesses() {
     <div className="mx-auto grid max-w-7xl gap-5">
       <section className="grid gap-4 md:grid-cols-3">
         {[
-          ["En revision", "1"],
-          ["Pendiente correccion", "2"],
+          ["En revisión", "1"],
+          ["Pendiente corrección", "2"],
           ["Score promedio", "70"],
         ].map(([label, value]) => (
           <article className="panel p-5" key={label}>

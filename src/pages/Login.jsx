@@ -1,4 +1,4 @@
-import { ArrowRight, FileCheck2, KeyRound, LockKeyhole, Mail, ShieldCheck, University } from "lucide-react";
+import { ArrowRight, FileCheck2, KeyRound, LockKeyhole, Mail, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -36,12 +36,10 @@ export default function Login() {
       <section className="grid w-full max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="panel p-6 sm:p-8">
           <div className="mb-8 flex items-center gap-3">
-            <div className="grid h-12 w-12 place-items-center bg-accent text-white" style={{ borderRadius: 8 }}>
-              <University size={24} />
-            </div>
+            <img src="/logo.png" alt="NotaBot" className="h-12 w-12 rounded-lg object-contain" />
             <div>
               <p className="text-xl font-extrabold text-copy">NotaBot</p>
-              <p className="font-mono text-xs font-bold text-muted">VALIDACION ACADEMICA</p>
+              <p className="font-mono text-xs font-bold text-muted">VALIDACIÓN ACADÉMICA</p>
             </div>
           </div>
 
@@ -50,7 +48,7 @@ export default function Login() {
               <ShieldCheck size={15} />
               ACCESO COORDINADOR
             </p>
-            <h1 className="text-3xl font-extrabold text-copy sm:text-4xl">Gestion de planeadores academicos</h1>
+            <h1 className="text-3xl font-extrabold text-copy sm:text-4xl">Gestión de planeadores académicos</h1>
             <p className="mt-3 max-w-md text-sm leading-6 text-muted">
               Plataforma SaaS para validar, observar y aprobar planeadores PDF con asistencia inteligente.
             </p>
@@ -73,7 +71,7 @@ export default function Login() {
             </label>
 
             <label className="grid gap-2">
-              <span className="text-sm font-bold text-copy">Contrasena</span>
+              <span className="text-sm font-bold text-copy">Contraseña</span>
               <div className="relative">
                 <KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                 <input
@@ -95,7 +93,7 @@ export default function Login() {
 
             <button className="primary-button mt-2" type="submit" disabled={isSubmitting}>
               <LockKeyhole size={18} />
-              {isSubmitting ? "Validando acceso..." : "Iniciar sesion"}
+              {isSubmitting ? "Validando acceso..." : "Iniciar sesión"}
               <ArrowRight size={18} />
             </button>
           </form>
@@ -109,17 +107,17 @@ export default function Login() {
               </span>
               <div>
                 <p className="font-mono text-xs font-bold text-indigo-200">FLUJO INSTITUCIONAL</p>
-                <h2 className="mt-2 text-2xl font-extrabold text-copy">Del PDF del profesor a una decision trazable</h2>
+                <h2 className="mt-2 text-2xl font-extrabold text-copy">Del PDF del profesor a una decisión trazable</h2>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
-                  El coordinador crea un proceso, sube el planeador y recibe un analisis con score, errores,
-                  anotaciones, recomendaciones y semaforo academico.
+                  El coordinador crea un proceso, sube el planeador y recibe un análisis con score, errores,
+                  anotaciones, recomendaciones y semáforo académico.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            {["Recepcion PDF", "Validacion IA", "Decision academica"].map((item, index) => (
+            {["Recepción PDF", "Validación IA", "Decisión académica"].map((item, index) => (
               <div className="soft-panel p-4" key={item}>
                 <span className="font-mono text-xs font-bold text-muted">0{index + 1}</span>
                 <p className="mt-2 font-bold text-copy">{item}</p>
